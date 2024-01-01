@@ -9,6 +9,36 @@
         <button type="button" class="btn btn-outline-secondary btn-lg px-4 gap-3"><a href="#">Posts</a></button>
         <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="#"> About</a></button>
       </div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Map URL</th>
+                <th>image URL</th>
+                <th>Location</th>
+                <th>Sockets</th>
+                <th>Toilets</th>
+                <th>WiFi</th>
+                <th>Phone Calls</th>
+                <th>Seats</th>
+                <th>Coffee Price</th>
+            </tr>
+
+            {% for location in locations %}
+                <tr>
+                    <td>{{ location.name }}</td>
+                    <td><a href="{{ location.map_url }}">location</a> </td>
+                    <td><a href="{{ location.img_url }}">Image</a></td>
+                    <td>{{ location.location }}</td>
+                    <td>{{ location.has_sockets }}</td>
+                    <td>{{ location.has_toilet }}</td>
+                    <td>{{ location.has_wifi }}</td>
+                    <td>{{ location.can_take_calls }}</td>
+                    <td>{{ location.seats }}</td>
+                    <td>{{ location.coffee_price }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
     </div>
 
   </div>

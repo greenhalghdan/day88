@@ -26,7 +26,11 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    locations = db.session.execute(db.select(cafe))
+    a = locations.scalars().all()
+    for loc in a:
+        print(loc.name)
+    return render_template("index.html", locations=a)
 
 if __name__ == "__main__":
     app.run(debug=True)
